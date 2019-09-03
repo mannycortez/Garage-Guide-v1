@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Manny-Cortez:mongodesignflow@garage-guide-qmnll.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://Manny-Cortez:mongodesignflow@garage-guide-qmnll.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "HushToken"
 }

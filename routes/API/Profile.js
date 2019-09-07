@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const auth = require('../../middleware/auth')
 const { check, validationResult } = require('express-validator')
+const auth = require('../../middleware/auth')
+
 
 const Profile = require('../../models/Profile')
 const User = require('../../models/User')
@@ -220,6 +221,28 @@ router.put('/experience', [ auth, [
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error')
+    }
+});
+
+// Route:           DELETE api/profile/experience/:exp_id
+// Description:     Delete experience from profile
+// Access:          Private
+
+router.delete('/experience/:exp_id', auth, async(req, res) => {
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      // Get 'remove' index
+      const profileExpUpdated = profile.experience.filter(item => item._id != req.params.exp_id)
+
+        profile.experience = profileExpUpdated
+
+        await profile.save();
+
+        res.json(profile)
+    }catch (err) {
+        console.error(err.message);
+            res.status(500).send('Server Error');
     }
 })
 

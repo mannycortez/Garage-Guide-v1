@@ -1,0 +1,23 @@
+{
+  "name": "garage-guide",
+  "version": "1.0.0",
+  "description": "App by Patrick Flanagan. Designed and developed by Manny Cortez Studios LLC.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mannycortez/Garage-Guide-v1.git"
+  },
+  "author": "Manny Cortez Studios LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mannycortez/Garage-Guide-v1/issues"
+  },
+  "homepage": "https://github.com/mannycortez/Garage-Guide-v1#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.3"
+  }
+}

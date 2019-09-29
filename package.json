@@ -1,5 +1,5 @@
 {
-  "name": "dreamer-social-network",
+  "name": "garage-guide-v1",
   "version": "1.0.0",
   "description": "A Social Network by Manny Cortez Studios ",
   "main": "app.js",
@@ -8,14 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mannycortez/Dreamer-Social-Network.git"
+    "url": "git+ssh://git@github.com/mannycortez/Garage-Guide-v1.git"
   },
   "author": "Manny Cortez Studios LLC",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mannycortez/Dreamer-Social-Network/issues"
-  },
-  "homepage": "https://github.com/mannycortez/Dreamer-Social-Network#readme",
+  "homepage": "https://github.com/mannycortez/Garage-Guide-v1#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
@@ -31,5 +28,12 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.19.2",
     "uuid": "^3.3.3"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/mannycortez/Garage-Guide-v1/issues"
   }
 }

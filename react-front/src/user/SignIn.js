@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-class SignUp extends Component {
+class SignIn extends Component {
     constructor() {
         super()
         this.state = {
-            name: "",
             email: "",
             password: "",
             error: "",
-            open: false
+            redirectToReferer: false
         }
     }
 
@@ -19,29 +18,25 @@ class SignUp extends Component {
 
     clickSubmit = event => {
         event.preventDefault()
-        const { name, email, password } = this.state;
+        const { email, password } = this.state;
         const user = {
-            name,
             email,
             password
         };
         // console.log(user);
-        this.signup(user)
-        .then(data => {
-            if(data.error) this.setState({ error: data.error })
-                else 
-                  this.setState({
-                    error: "",
-                    name: "",
-                    email: "",
-                    password: "",
-                    open: true
-                });
+        this.signin(user).then(data => {
+            if(data.error) {
+                this.setState({ error: data.error })
+            } else {
+                // authenticate
+
+                // redirect
+            }
         });
     };
 
-    signup = (user) => {
-        return fetch("http://localhost:8000/signup", {
+    signin = (user) => {
+        return fetch("http://localhost:8000/signin", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -55,18 +50,9 @@ class SignUp extends Component {
         .catch(err => console.log(err));
     };
 
-    signupForm = (name, email, password) => (
+    signinForm = ( email, password) => (
+
         <form>
-            <div className = "form-group">
-                <label className="text-muted">
-                        Name
-                </label>
-                    <input onChange = { this.handleChange("name") } 
-                           type = "text" 
-                           className = "form-control"
-                           value = { name } 
-                    />
-            </div>
 
             <div className = "form-group">
                     <label className="text-muted">
@@ -90,32 +76,27 @@ class SignUp extends Component {
                         />
             </div>
 
-                    <button onClick = { this.clickSubmit } className = "btn btn-raised btn-primary">
+            <button onClick = { this.clickSubmit } className = "btn btn-raised btn-primary">
                             Submit
-                    </button>
-                </form>
+            </button>
+        </form>
     )
 
     render() {
-        const { name, email, password, error, open } = this.state;
+        const { email, password, error } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5">Signup</h2>
+                <h2 className = "mt-5 mb-5">Sign In</h2>
 
                 <div className = "alert alert-danger" 
                      style = {{ display: error ? "" : "none" }}>
                     { error }
                 </div>
 
-                <div className = "alert alert-info" 
-                     style = {{ display: open ? "" : "none" }}>
-                    Welcome to Garage Guide! Please sign in.
-                </div>
-
-                {this.signupForm(name, email, password)}
+                { this.signinForm(email, password) }
             </div>
         );
     }
 }
 
-export default SignUp;
+export default SignIn;

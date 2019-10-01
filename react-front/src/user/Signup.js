@@ -7,11 +7,13 @@ class Signup extends Component {
             name: "",
             email: "",
             password: "",
-            error: ""
+            error: "",
+            open: false
         }
     }
 
     handleChange = (name) => (event) => {
+        this.setState({ error: "" })
         this.setState({[ name ]: event.target.value });
     };
 
@@ -24,7 +26,22 @@ class Signup extends Component {
             password
         };
         // console.log(user);
-        fetch("http://localhost:8000/signup", {
+        this.signup(user)
+        .then(data => {
+            if(data.error) this.setState({ error: data.error })
+                else 
+                  this.setState({
+                    error: "",
+                    name: "",
+                    email: "",
+                    password: "",
+                    open: true
+                });
+        });
+    };
+
+    signup = (user) => {
+        return fetch("http://localhost:8000/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -39,10 +56,20 @@ class Signup extends Component {
     };
 
     render() {
-        const { name, email, password } = this.state;
+        const { name, email, password, error, open } = this.state;
         return (
             <div className = "container">
                 <h2 className = "mt-5 mb-5">Signup</h2>
+
+                <div className = "alert alert-primary" 
+                     style = {{ display: error ? "" : "none" }}>
+                    { error }
+                </div>
+
+                <div className = "alert alert-info" 
+                     style = {{ display: open ? "" : "none" }}>
+                    Welcome to Garage Guide! Please sign in.
+                </div>
 
                 <form>
                     <div className = "form-group">

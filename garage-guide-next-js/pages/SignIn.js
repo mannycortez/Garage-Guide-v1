@@ -2,16 +2,15 @@ import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import BasePage from '../components/BasePage'
 
-class Blog extends React.Component {
+class SignIn extends React.Component {
     render() {
         return (
             <BaseLayout>
                 <BasePage>
-                   <h1>I am the Blog page</h1>
+                  <h1>This is the Sign In page.</h1>
                 </BasePage>
             </BaseLayout>
         )
     }
 } 
-
-export default Blog;
+export default SignIn;

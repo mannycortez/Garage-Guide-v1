@@ -56,11 +56,11 @@ export default class Header extends React.Component {
               </NavItem>
 
               <NavItem className="port-navbar-item">
-                <RsNavLink  route="/blog" title='map' />
+                <RsNavLink  route="/map" title='map' />
               </NavItem>
 
               <NavItem className="port-navbar-item">
-                <RsNavLink  route="/art" title='sign in' />
+                <RsNavLink  route="/SignIn" title='sign in' />
               </NavItem>
             </Nav>
           </Collapse>

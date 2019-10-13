@@ -38,7 +38,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Navbar className="port-navbar port-default absolute" color="transparent" dark expand="md">
-          <NavbarBrand className="port-navbar-brand" href="/">Manny Cortez Studios</NavbarBrand>
+          <NavbarBrand className="port-navbar-brand" href="/">Garage Guide</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -52,15 +52,15 @@ export default class Header extends React.Component {
               </NavItem>
 
               <NavItem className="port-navbar-item">
-                <RsNavLink  route="/galleries" title='portfolio' />
+                <RsNavLink  route="/galleries" title='services' />
               </NavItem>
 
               <NavItem className="port-navbar-item">
-                <RsNavLink  route="/blog" title='blog' />
+                <RsNavLink  route="/blog" title='map' />
               </NavItem>
 
               <NavItem className="port-navbar-item">
-                <RsNavLink  route="/art" title='art' />
+                <RsNavLink  route="/art" title='sign in' />
               </NavItem>
             </Nav>
           </Collapse>

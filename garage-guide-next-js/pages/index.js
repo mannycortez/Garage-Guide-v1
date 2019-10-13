@@ -10,7 +10,7 @@ class Index extends React.Component {
     constructor(props) {
         super(props);
 
-        this.selfTypingText = ['artist', 'designer', 'fullstack developer']
+        this.selfTypingText = ['Find the best', 'in automotive services', 'in your area']
     }
     render() {
         return (
@@ -30,7 +30,7 @@ class Index extends React.Component {
                   <h2> </h2>
                   <div className="hero-section-content-intro"></div>
                 </div>
-                <img className="image" src="/static/images/studio-hero-1.jpg"/>
+                <img className="image" src="/static/images/garage-guide-logo.png"/>
                 <div className="shadow-custom">
                   <div className="shadow-inner"> </div>
                 </div>
@@ -41,7 +41,7 @@ class Index extends React.Component {
         <Col md="6" className="hero-welcome-wrapper">
           <div className="hero-welcome-text">
             <h1>
-              Manny Cortez
+              Garage Guide
             </h1>
           </div> 
           <Typed
@@ -60,7 +60,7 @@ class Index extends React.Component {
 
           <div className="hero-welcome-bio">
             <h2>
-              MongoDB | Express | React | Node | SASS | Firebase | Next.js | Webflow | Adobe Illustrator | XD
+              Tire Repair | Oil Change | Brakes | Paint | Collision | Heating and Air | Towing | Minor Repairs | Alignment | Carwash
             </h2>
           </div>
         </Col>
@@ -68,7 +68,7 @@ class Index extends React.Component {
     </Container>
   </div>
   <div className = "icon-header">
-    <h4>Follow me</h4>
+    <h4>Follow us</h4>
   </div>
   <div className = "social-icons">
   <FaGitSquare />

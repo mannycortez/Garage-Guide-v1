@@ -71,7 +71,7 @@ function Image({ color }) {
 function Home() {
     return (
         <div>
-            <Link to = '/galleries/gallery'>Visit the Gallery</Link>
+            <Link to = '/galleries/gallery'>Services</Link>
             <h2>Featured Images</h2>
             <ul>
                 <li>

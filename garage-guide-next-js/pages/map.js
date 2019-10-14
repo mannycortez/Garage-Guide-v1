@@ -7,7 +7,7 @@ class GoogleMap extends React.Component {
         return (
             <BaseLayout>
                 <BasePage>
-                   <h1>This is the map page</h1>
+                   <h1>This is the Google map page.</h1>
                 </BasePage>
             </BaseLayout>
         )

@@ -1,7 +1,5 @@
 import React from 'react'
 import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps'
-import BaseLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/BasePage'
 
 function Map() {
     return <GoogleMap defaultZoom={ 10 } defaultCenter={{ lat: 37.774929, lng: -122.419418 }} />

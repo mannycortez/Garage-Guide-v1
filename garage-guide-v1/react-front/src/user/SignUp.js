@@ -43,9 +43,7 @@ class SignUp extends Component {
     signupForm = (name, email, password) => (
         <form>
             <div className = "form-group">
-                <label className="text-muted">
-                        Name
-                </label>
+                <label className="text-muted"> Name </label>
                     <input onChange = { this.handleChange("name") } 
                            type = "text" 
                            className = "form-control"
@@ -54,9 +52,7 @@ class SignUp extends Component {
             </div>
 
             <div className = "form-group">
-                    <label className="text-muted">
-                        Email
-                    </label>
+                    <label className="text-muted"> Email </label>
                         <input onChange = { this.handleChange("email") } 
                                type = "email" 
                                className = "form-control"
@@ -65,9 +61,7 @@ class SignUp extends Component {
             </div>
 
             <div className = "form-group">
-                    <label className="text-muted">
-                            Password
-                    </label>
+                    <label className="text-muted"> Password </label>
                         <input onChange = { this.handleChange("password") } 
                                type = "password" 
                                className = "form-control" 
@@ -75,7 +69,8 @@ class SignUp extends Component {
                         />
             </div>
 
-                    <button onClick = { this.clickSubmit } className = "btn btn-raised btn-primary">
+                    <button onClick = { this.clickSubmit } 
+                            className = "btn btn-raised btn-primary">
                             Submit
                     </button>
                 </form>
@@ -94,7 +89,7 @@ class SignUp extends Component {
 
                 <div className = "alert alert-info" 
                      style = {{ display: open ? "" : "none" }}>
-                    Welcome to Garage Guide! Please sign in.
+                    Welcome to your Garage Guide account! Please sign in.
                 </div>
 
                 {this.signupForm(name, email, password)}

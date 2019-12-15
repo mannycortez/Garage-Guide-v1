@@ -27,7 +27,7 @@ class SignIn extends Component {
             email,
             password
         };
-        console.log(user);
+        // console.log(user);
         signin(user).then(data => {
             if(data.error) {
                 this.setState({ error: data.error, loading: false })
@@ -43,11 +43,8 @@ class SignIn extends Component {
     signinForm = ( email, password) => (
 
         <form>
-
             <div className = "form-group">
-                    <label className="text-muted">
-                        Email
-                    </label>
+                    <label className="text-muted"> Email </label>
                         <input onChange = { this.handleChange("email") } 
                                type = "email" 
                                className = "form-control"
@@ -56,9 +53,7 @@ class SignIn extends Component {
             </div>
 
             <div className = "form-group">
-                    <label className="text-muted">
-                            Password
-                    </label>
+                    <label className="text-muted"> Password </label>
                         <input onChange = { this.handleChange("password") } 
                                type = "password" 
                                className = "form-control" 
@@ -66,9 +61,8 @@ class SignIn extends Component {
                         />
             </div>
 
-            <button onClick = { this.clickSubmit } className = "btn btn-raised btn-primary">
-                            Submit
-            </button>
+            <button onClick = { this.clickSubmit } 
+                    className = "btn btn-raised btn-primary"> Submit </button>
         </form>
     )
 

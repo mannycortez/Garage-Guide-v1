@@ -19,17 +19,17 @@ const Menu = ({ history }) => (
 
             <li className="nav-item">
                 <Link className = "nav-link" 
-                      style = { isActive(history, "/") } 
-                      to="/users"> Users
+                      style = { isActive(history, "/users") } 
+                      to="/users"> Shops
                 </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className = "nav-link" 
                       style = { isActive(history, "/") } 
                       to="/dealers"> Dealers
                 </Link>
-            </li>
+            </li> */}
 
             { !isAuthenticated() && (
                  <>

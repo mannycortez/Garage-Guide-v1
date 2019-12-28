@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { isAuthenticated } from '../auth'
 import { read, update } from './apiUser'
 import { Redirect } from 'react-router-dom'
+import DefaultProfile from "../images/garageguide-logo.jpg"
 
 class EditProfile extends Component {
 
@@ -62,9 +63,12 @@ class EditProfile extends Component {
     }
 
     handleChange = name => event => {
-        const value = name === 'photo' ? event.target.files[0] : event.target.value
+        this.setState({error: ""})
+        const value = name === 'photo' ? event.target.files[0] : event.target.value;
+
+        const fileSize = name === 'photo' ? event.target.files[0].size : 0;
         this.userData.set(name, value)
-        this.setState({[ name ]: event.target.value });
+        this.setState({[ name ]: value, fileSize });
     };
 
     clickSubmit = event => {
@@ -132,10 +136,19 @@ signupForm = (name, email, password) => (
 )
 
     render() {
-        const { id, name, email, password,redirectToProfile, error, loading } = this.state;
+        const { id, 
+                name, 
+                email, 
+                password,
+                redirectToProfile, 
+                error, 
+                loading } = this.state;
+
             if(redirectToProfile) {
                 return <Redirect to = {`/user/${id}`}/>
             }
+
+            const photoUrl = id ? `${process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()} ` : DefaultProfile;
 
         return (
             <div className="container">
@@ -152,6 +165,12 @@ signupForm = (name, email, password) => (
                 ) : (
                     ""
                )}
+
+               <img style={{height: "200px", width: "auto"}}
+                    className="img-thumbnail"
+                    src={photoUrl}
+                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
+                    alt={name} />
 
                 { this.signupForm(name, email, password)}
             </div>

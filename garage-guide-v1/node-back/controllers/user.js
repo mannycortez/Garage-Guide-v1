@@ -88,6 +88,14 @@ exports.updateUser = (req, res, next) => {
             res.json(user);
         })
     })
+};
+
+exports.userPhoto = (req, res, next) => {
+    if(req.profile.photo.data) {
+        res.set("Content-Type", req.profile.contentType)
+        return res.send(req.profile.photo.data)
+    }
+    next();
 }
 
 exports.deleteUser = (req, res, next) => {

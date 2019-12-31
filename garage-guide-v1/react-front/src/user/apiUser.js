@@ -83,3 +83,21 @@ export const update = (userId, token, user) => {
             })
             .catch(err => console.log(err));
     };
+
+//unfollow method
+
+    export const unfollow = (userId, token, unfollowId) => {
+        return fetch(`${process.env.REACT_APP_API_URL}/user/unfollow`, {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({userId, unfollowId})
+        })
+            .then(response => {
+            return response.json();
+            })
+            .catch(err => console.log(err));
+    };

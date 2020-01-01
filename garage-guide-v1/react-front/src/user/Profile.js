@@ -4,7 +4,8 @@ import { Redirect, Link } from "react-router-dom";
 import { read } from "./apiUser";
 import DefaultProfile from '../images/garageguide-logo.jpg'
 import DeleteUser from './DeleteUser';
-import FollowProfileButton from './FollowProfileButton'
+import FollowProfileButton from './FollowProfileButton';
+import ProfileTabs from './ProfileTabs'
 
 class Profile extends Component {
     constructor() {
@@ -100,6 +101,7 @@ class Profile extends Component {
                         onButtonClick = {this.clickFollowButton}
                         />
                     )}
+                    
                 </div>
                </div>
                <div className="row">
@@ -107,6 +109,8 @@ class Profile extends Component {
                     <hr />
                     <p className="lead">{user.about}</p>
                     <hr />
+                    <ProfileTabs followers={user.followers}
+                                 following={user.following} />
                    </div>
 
                </div>

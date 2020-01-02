@@ -5,7 +5,8 @@ import { read } from "./apiUser";
 import DefaultProfile from '../images/garageguide-logo.jpg'
 import DeleteUser from './DeleteUser';
 import FollowProfileButton from './FollowProfileButton';
-import ProfileTabs from './ProfileTabs'
+import ProfileTabs from './ProfileTabs';
+import { listByUser } from '../post/apiPost'
 
 class Profile extends Component {
     constructor() {
@@ -13,7 +14,9 @@ class Profile extends Component {
         this.state = {
             user: {following: [], followers: []},
             redirectToSignin: false,
-            following: false
+            following: false,
+            error: '',
+            posts: []
         }
     }
 
@@ -49,9 +52,21 @@ class Profile extends Component {
             } else {
                 let following = this.checkFollow(data)
                 this.setState({ user: data, following });
+                this.loadPosts(data._id)
             }
         });
     };
+
+    loadPosts = userId => {
+        const token = isAuthenticated().token;
+        listByUser(userId, token).then(data => {
+            if(data.error) {
+                console.log(data.error)
+            } else {
+                this.setState({ posts: data });
+            }
+        })
+    }
 
     componentDidMount() {
         const userId = this.props.match.params.userId;
@@ -64,7 +79,7 @@ class Profile extends Component {
     }
 
     render() {
-        const {redirectToSignin, user} = this.state
+        const {redirectToSignin, user, posts} = this.state
         if(redirectToSignin) return <Redirect to="/signin" />
 
         const photoUrl = user._id ? `${process.env.REACT_APP_API_URL}/user/photo/${user._id}?${new Date().getTime()} ` : DefaultProfile;
@@ -110,7 +125,8 @@ class Profile extends Component {
                     <p className="lead">{user.about}</p>
                     <hr />
                     <ProfileTabs followers={user.followers}
-                                 following={user.following} />
+                                 following={user.following}
+                                 posts={ posts } />
                    </div>
 
                </div>

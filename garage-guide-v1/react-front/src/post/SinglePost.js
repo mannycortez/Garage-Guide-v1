@@ -75,7 +75,7 @@ class SinglePost extends Component {
                                   Update
                                 </Link>
                                 <button onClick={this.deleteConfirmed} className="btn btn-raised btn-danger btn-sm mr-5">
-                                Delete
+                                  Delete
                                 </button>
                               </>  
                             )}

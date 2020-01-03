@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { singlePost } from './apiPost'
+import { singlePost, remove } from './apiPost'
 import DefaultPost from '../images/cat.png'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { isAuthenticated } from '../auth'
 
 class SinglePost extends Component {
     state = {
-        post: ''
+        post: '',
+        redirectToHome: false
     }
 
     componentDidMount = () => {
@@ -18,6 +19,25 @@ class SinglePost extends Component {
                 this.setState({ post: data });
             }
         });
+    };
+
+    deletePost = () => {
+        const postId = this.props.match.params.postId;
+        const token = isAuthenticated().token
+        remove(postId, token).then(data => {
+            if(data.error) {
+                console.log(data.error)
+            } else {
+                this.setState({redirectToHome: true})
+            }
+        })
+    }
+
+    deleteConfirmed = () => {
+        let answer = window.confirm("Are you sure you want to delete your account?");
+        if(answer) {
+            this.deletePost();
+        }
     };
 
     renderPost = (post) => {
@@ -52,7 +72,7 @@ class SinglePost extends Component {
                                 <button className="btn btn-raised btn-warning btn-sm mr-5">
                                 Update
                                 </button>
-                                <button className="btn btn-raised btn-danger btn-sm mr-5">
+                                <button onClick={this.deleteConfirmed} className="btn btn-raised btn-danger btn-sm mr-5">
                                 Delete
                                 </button>
                               </>  
@@ -66,6 +86,10 @@ class SinglePost extends Component {
     }
 
     render() {
+
+        if (this.state.redirectToHome) {
+            return <Redirect to={`/`} />
+        }
         const { post } = this.state 
         return (
             <div className = "container">

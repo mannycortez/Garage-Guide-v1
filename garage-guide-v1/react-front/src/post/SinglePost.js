@@ -34,7 +34,7 @@ class SinglePost extends Component {
     }
 
     deleteConfirmed = () => {
-        let answer = window.confirm("Are you sure you want to delete your account?");
+        let answer = window.confirm("Are you sure you want to delete your coupon?");
         if(answer) {
             this.deletePost();
         }

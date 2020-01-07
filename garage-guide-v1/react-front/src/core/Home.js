@@ -2,15 +2,20 @@ import React from 'react'
 import Posts from '../post/Posts'
 import { GoogleMap, 
          withScriptjs, 
-         withGoogleMap, 
-         Marker } from "react-google-maps"
+         withGoogleMap 
+          } from "react-google-maps"
+import DefaultProfile from "../images/garageguide-logo.jpg"
 
 
 const Home = () => (
     <div>
-    <div className = "jumbotron">
-        <h2>Home</h2>
-        <p className="lead">Welcome to React Front end</p>
+    <div className = "jumbotron"
+         style = {{textAlign: 'center'}}>
+        <img style={{height: "300px", width: "auto"}}
+                    className="img-thumbnail"
+                    src={`${DefaultProfile}`}
+                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
+                    alt="Garage Guide logo" />
     </div>
     <div style={{width: '100vw', height: '100vh'}}>
         <WrappedMap 

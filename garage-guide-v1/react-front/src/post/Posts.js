@@ -63,7 +63,7 @@ class Posts extends Component {
         return (
             <div className = "container">
                 <h2 className = "mt-5 mb-5">
-                    { !posts.length ? "Loading..." : "Recent Posts"}
+                    { !posts.length ? "Loading..." : "New Coupons"}
                 </h2>
                 
                 {this.renderPosts(posts)}

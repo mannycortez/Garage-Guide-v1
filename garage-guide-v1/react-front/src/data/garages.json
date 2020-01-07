@@ -1,0 +1,12 @@
+{
+    "list" : [
+        {
+            "Garage": "Manny's Auto Shop",
+            "Address": "Jonesboro, Georgia"
+        },
+        {
+            "Garage": "Patrick's Tire Shop",
+            "Address": "Atlanta, Georgia"
+        }
+    ]
+}

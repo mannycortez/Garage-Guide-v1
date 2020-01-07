@@ -5,6 +5,7 @@ import { GoogleMap,
          withGoogleMap, 
          Marker } from "react-google-maps"
 
+
 const Home = () => (
     <div>
     <div className = "jumbotron">
@@ -32,8 +33,8 @@ function Map() {
     
     <GoogleMap 
             defaultZoom={10} 
-            defaultCenter={{lat: 33.748997, lng: -84.387985}} 
-    >
+            defaultCenter={{lat: 33.748997, lng: -84.387985}} >
+
     </GoogleMap>
   )
 }

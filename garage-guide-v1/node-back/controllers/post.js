@@ -7,7 +7,7 @@ exports.postById = (req, res, next, id) => {
     Post.findById(id)
         .populate("postedBy", "_id name")
         .populate('comments', 'text created')
-        .populate('comments.postedB)y', '_id name')
+        .populate('comments.postedBy)', '_id name')
         .exec((err, post) => {
         if(err || !post) {
             return res.status(400).json({

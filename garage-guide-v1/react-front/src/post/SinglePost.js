@@ -3,6 +3,7 @@ import { singlePost, remove, like, unlike } from './apiPost'
 import DefaultPost from '../images/cat.png'
 import { Link, Redirect } from 'react-router-dom'
 import { isAuthenticated } from '../auth'
+import Comment from './Comment'
 
 class SinglePost extends Component {
     state = {
@@ -155,6 +156,8 @@ class SinglePost extends Component {
                 ) : (
                     this.renderPost(post)
                )}
+
+               <Comment />
             </div>
         )
     }

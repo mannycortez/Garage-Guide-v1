@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { signout, isAuthenticated } from '../auth'
+import DefaultProfile from "../images/garageguide-logo.jpg"
 
 const isActive = (history, path) => {
     if(history.location.pathname === path) return { color: "#333" }
@@ -9,7 +10,14 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-info">
+        <ul className="nav nav-tabs bg-info mt-10" style={{textAlign: 'right'}}>
+            <li>
+            <img style={{height: "75px", width: "auto"}}
+                    className="img-thumbnail"
+                    src={`${DefaultProfile}`}
+                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
+                    alt="Garage Guide logo" />
+            </li>
             <li className="nav-item">
                 <Link className = "nav-link" 
                       style = { isActive(history, "/") } 

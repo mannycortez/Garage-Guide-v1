@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { signup } from '../auth'
 import { Link } from 'react-router-dom'
+import DefaultProfile from "../images/garageguide-logo.jpg"
 
 class SignUp extends Component {
     constructor() {
@@ -44,6 +45,13 @@ class SignUp extends Component {
     signupForm = (name, email, password) => (
         <form>
             <div className = "form-group">
+            <div className = 'logo' style={{marginBottom: '20px'}}>
+            <img style={{height: "200px", width: "auto"}}
+                    className="img-thumbnail"
+                    src={`${DefaultProfile}`}
+                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
+                    alt="Garage Guide logo" />
+            </div>    
                 <label className="text-muted"> Name </label>
                     <input onChange = { this.handleChange("name") } 
                            type = "text" 
@@ -81,7 +89,7 @@ class SignUp extends Component {
         const { name, email, password, error, open } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5">Signup</h2>
+                <h2 className = "mt-5 mb-5">Signup Page</h2>
 
                 <div className = "alert alert-danger" 
                      style = {{ display: error ? "" : "none" }}>

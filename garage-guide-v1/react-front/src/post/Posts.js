@@ -29,7 +29,7 @@ class Posts extends Component {
                 const posterName = post.postedBy ? post.postedBy.name : " Unknown";
 
                 return (
-                  <div className="card col-md-4" key={i}>
+                  <div className="card col-md-4" key={i} style={{margin: '20px'}}>
                     <div className="card-body">
                         <img src = {`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`} 
                              alt = {post.title}
@@ -44,7 +44,7 @@ class Posts extends Component {
                         Posted by <Link to={`${posterId}`}>
                                     {posterName}{" "}
                                   </Link>
-                        on { new Date(post.created).toDateString()}
+                        {/* on { new Date(post.created).toDateString()} */}
                     </p>
                   <Link to={ `/post/${post._id}` } 
                         className="btn btn-raised btn-primary btn-sm">
@@ -62,11 +62,9 @@ class Posts extends Component {
         const { posts } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5">
-
-                    { !posts.length ? "Loading..." : "Recent Posts"}
+                <h2 className = "mt-5 mb-5" style={{textAlign: 'center'}}>
+                    { !posts.length ? "No New Posts" : "New Posts"}
                 </h2>
-                
                 {this.renderPosts(posts)}
             </div>
         )

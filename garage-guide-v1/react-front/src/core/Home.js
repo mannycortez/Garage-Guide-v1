@@ -4,22 +4,16 @@ import { GoogleMap,
          withScriptjs, 
          withGoogleMap 
           } from "react-google-maps"
-import DefaultProfile from "../images/garageguide-logo.jpg"
 
 
 const Home = () => (
     <div>
     <div className = "jumbotron"
          style = {{textAlign: 'center'}}>
-        <img style={{height: "300px", width: "auto"}}
-                    className="img-thumbnail"
-                    src={`${DefaultProfile}`}
-                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
-                    alt="Garage Guide logo" />
+        <h1>Garage Guide</h1>
+        <p>Your guide to the best automotive services in your area.</p>
     </div>
-    <div className = "container">
-        <Posts />
-    </div>
+    
     <div style={{width: '100vw', height: '100vh'}}>
         <WrappedMap 
             googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
@@ -28,6 +22,12 @@ const Home = () => (
             mapElement={<div style = {{ height: "100%"}} />} 
         />
     </div>
+
+    <div className = "container">
+        <Posts />
+    </div>
+    <br />
+    <hr />
     
     </div>
 );

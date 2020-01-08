@@ -1,0 +1,43 @@
+@import './shared/fonts';
+@import './shared/colors';
+@import './index';
+@import './header';
+
+html, body {
+    height:100%;
+    width:100%;
+    font-family: 'Montserrat', 'Helvetica';
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.self-typed {
+    font-size: 31px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.absolute {
+    position: absolute;
+  }
+
+.base-page {
+    padding-top: 150px;
+    color: white;
+    background-color: #ecedee;
+    min-height: 100vh;
+  
+    .page-header {
+      .page-header-title {
+        font-weight: 700;
+        color: black;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+    }
+}
+  
+

@@ -11,7 +11,14 @@ const Home = () => (
     <div>
     <div className = "jumbotron"
          style = {{textAlign: 'center'}}>
-        <h1>Welcome to Garage Guide</h1>
+        <img style={{height: "300px", width: "auto"}}
+                    className="img-thumbnail"
+                    src={`${DefaultProfile}`}
+                    onError={ i => (i.target.src = `${DefaultProfile}`)} 
+                    alt="Garage Guide logo" />
+    </div>
+    <div className = "container">
+        <Posts />
     </div>
     <div style={{width: '100vw', height: '100vh'}}>
         <WrappedMap 
@@ -21,9 +28,7 @@ const Home = () => (
             mapElement={<div style = {{ height: "100%"}} />} 
         />
     </div>
-    <div className = "container">
-        <Posts />
-    </div>
+    
     </div>
 );
 

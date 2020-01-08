@@ -27,7 +27,7 @@ const Home = () => (
     </div>
 );
 
-export default Home;
+
 
 function Map() {
     return (
@@ -41,4 +41,6 @@ function Map() {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
+
+export default Home;
 

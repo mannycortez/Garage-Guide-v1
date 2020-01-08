@@ -62,7 +62,7 @@ class Posts extends Component {
         const { posts } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5">
+                <h2 className = "mt-5 mb-5" style={{textAlign: 'center'}}>
                     { !posts.length ? "Loading..." : "New Coupons"}
                 </h2>
                 

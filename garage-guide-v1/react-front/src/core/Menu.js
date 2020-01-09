@@ -10,13 +10,16 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-info mt-10" style={{textAlign: 'right'}}>
+        <ul className="nav nav-tabs bg-info mt-20">
             <li>
             <img style={{height: "75px", width: "auto"}}
                     className="img-thumbnail"
                     src={`${DefaultProfile}`}
                     onError={ i => (i.target.src = `${DefaultProfile}`)} 
                     alt="Garage Guide logo" />
+            </li>
+            <li className="nav-item">
+                <div className="padding" style={{paddingLeft: '20px'}}></div>
             </li>
             <li className="nav-item">
                 <Link className = "nav-link" 

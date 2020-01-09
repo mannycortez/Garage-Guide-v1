@@ -29,7 +29,7 @@ class Posts extends Component {
                 const posterName = post.postedBy ? post.postedBy.name : " Unknown";
 
                 return (
-                  <div className="card col-md-4" key={i} style={{margin: '20px'}}>
+                  <div className="card col-md-5" key={i} style={{margin: '30px'}}>
                     <div className="card-body">
                         <img src = {`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`} 
                              alt = {post.title}

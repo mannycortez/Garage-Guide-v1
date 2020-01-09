@@ -41,7 +41,7 @@ class FindPeople extends Component {
                 this.setState({
                     users: toFollow,
                     open: true,
-                    followMessage: `Following${user.name}` 
+                    followMessage: `You are now following ${ user.name}` 
                 })
             }
         })
@@ -77,7 +77,7 @@ class FindPeople extends Component {
         const { users, open, followMessage } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5"> Find People </h2>
+                <h2 className = "mt-5 mb-5" style={{textAlign: "center"}}> Local Auto Mechanics </h2>
                     {open && (
                          <div className = "alert alert-success">
                             {<p>{followMessage}</p>}

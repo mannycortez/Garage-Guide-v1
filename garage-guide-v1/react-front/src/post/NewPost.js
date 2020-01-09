@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { isAuthenticated } from '../auth'
 import { create } from './apiPost'
 import { Redirect } from 'react-router-dom'
-import DefaultProfile from "../images/garageguide-logo.jpg"
+
 
 class NewPost extends Component {
 
@@ -68,7 +68,7 @@ class NewPost extends Component {
 newPostForm = (title, body) => (
         <form>
             <div className = "form-group">
-                <label className="text-muted"> Profile Photo </label>
+                <label className="text-muted"> Icon </label>
                     <input onChange = { this.handleChange("photo") } 
                            type = "file"
                            accept = "image/*" 
@@ -86,7 +86,7 @@ newPostForm = (title, body) => (
             </div>
 
             <div className = "form-group">
-                <label className="text-muted"> Body </label>
+                <label className="text-muted"> Details </label>
                     <textarea onChange = { this.handleChange("body") } 
                            type = "text" 
                            className = "form-control"

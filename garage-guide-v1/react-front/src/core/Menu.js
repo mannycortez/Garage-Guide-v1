@@ -62,7 +62,7 @@ const Menu = ({ history }) => (
                     <Link to = {`/findpeople`}
                           style = {isActive(history,`/findpeople`)}
                           className = "nav-link">
-                      Find People
+                      Find Shops
                     </Link>  
                 </li>
 

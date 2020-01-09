@@ -45,7 +45,7 @@ class Users extends Component {
         const { users } = this.state;
         return (
             <div className = "container">
-                <h2 className = "mt-5 mb-5"> Users </h2>
+                <h2 className = "mt-5 mb-5" style={{textAlign: "center"}}> Local Auto Mechanics </h2>
                 
                 {this.renderUsers(users)}
             </div>

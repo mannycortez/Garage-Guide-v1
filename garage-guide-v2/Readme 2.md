@@ -1,1 +1,0 @@
-This a single page application made with React and makes use of Next.js and MongoDB.  I'll also be experimenting with an animation library called GSAP or Greensock for this project.  This portfolio site includes a dynamic blog as well as a portfolio section made with CSS Grid.

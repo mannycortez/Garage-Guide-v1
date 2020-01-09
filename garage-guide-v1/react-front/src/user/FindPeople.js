@@ -50,7 +50,7 @@ class FindPeople extends Component {
     renderUsers = users => (
         <div className="row"> 
             {users.map((user, i) => (
-                <div className="card col-md-4" key={i}>
+                <div className="card col-md-3" key={i} style={{margin: '20px'}}>
                 <img style={{height: "200px", width: "auto"}}
                     className="img-thumbnail"
                     src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}

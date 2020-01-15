@@ -5,3 +5,7 @@ To start node api, use:
 To start react-front, use: 
 
 'npm start'
+
+Style:
+
+Inline

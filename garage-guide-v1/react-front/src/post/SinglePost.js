@@ -11,7 +11,8 @@ class SinglePost extends Component {
         redirectToHome: false,
         redirectToSignin: false,
         like: false,
-        likes: 0
+        likes: 0,
+        comments: []
     };
 
     checkLike = (likes) => {
@@ -21,7 +22,7 @@ class SinglePost extends Component {
     };
 
     componentDidMount = () => {
-        const postId = this.props.match.params.postId
+        const postId = this.props.match.params.postId;
         singlePost(postId).then(data => {
             if(data.error) {
                 console.log(data.error);
@@ -29,10 +30,15 @@ class SinglePost extends Component {
                 this.setState({ 
                     post: data, 
                     likes: data.likes.length, 
-                    like: this.checkLike(data.likes) 
+                    like: this.checkLike(data.likes), 
+                    comments: data.comments
                 });
             }
         });
+    };
+
+    updateComments = comments => {
+        this.setState({comments: comments})
     };
 
     likeToggle = () => {
@@ -137,7 +143,7 @@ class SinglePost extends Component {
     }
 
     render() {
-        const { post, redirectToHome, redirectToSignin } = this.state;
+        const { post, redirectToHome, redirectToSignin, comments } = this.state;
         
         if (redirectToHome) {
             return <Redirect to={`/`} />
@@ -157,7 +163,11 @@ class SinglePost extends Component {
                     this.renderPost(post)
                )}
 
-               <Comment />
+               <Comment 
+                    postId={post._id} 
+                    comments={comments} 
+                    updateComments={this.updateComments} 
+                />
             </div>
         )
     }

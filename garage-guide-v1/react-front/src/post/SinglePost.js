@@ -17,7 +17,7 @@ class SinglePost extends Component {
 
     checkLike = (likes) => {
         const userId = isAuthenticated() && isAuthenticated().user._id;
-        let match = likes.indexOf(userId) !== -1
+        let match = likes.indexOf(userId) !== -1;
         return match;
     };
 
@@ -38,7 +38,7 @@ class SinglePost extends Component {
     };
 
     updateComments = comments => {
-        this.setState({comments: comments})
+        this.setState({comments})
     };
 
     likeToggle = () => {
@@ -50,6 +50,7 @@ class SinglePost extends Component {
         const userId = isAuthenticated().user._id
         const postId = this.state.post._id
         const token = isAuthenticated().token
+
         callApi(userId, token, postId).then(data => {
             if(data.error) {
                 console.log(data.error)
@@ -76,7 +77,7 @@ class SinglePost extends Component {
     }
 
     deleteConfirmed = () => {
-        let answer = window.confirm("Are you sure you want to delete your coupon?");
+        let answer = window.confirm("Are you sure you want to delete your post?");
         if(answer) {
             this.deletePost();
         }
@@ -86,14 +87,16 @@ class SinglePost extends Component {
             const posterId = post.postedBy ? `/user/${post.postedBy._id}` : "";
             const posterName = post.postedBy ? post.postedBy.name : " Unknown";
 
-            const { like, likes } = this.state
+            const { like, likes } = this.state;
                       return (
                           <div className="card-body">
                               <img src = {`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`} 
                                    alt = {post.title}
                                    onError = { i => i.target.src = `${DefaultPost}`}
                                    className = "img-thumbnail mb-3"
-                                   style = {{height: '300px', width: "100%", objectFit: "cover"}}  
+                                   style = {{ height: '300px', 
+                                             width: "100%", 
+                                             objectFit: "cover" }}  
                               />
 
                                 {like ? (
@@ -134,9 +137,6 @@ class SinglePost extends Component {
                                 </button>
                               </>  
                             )}
-
-                            
-                            
                             </div>
                           </div>
                       )

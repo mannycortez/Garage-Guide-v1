@@ -130,7 +130,7 @@ class EditPost extends Component {
                 <div className = "alert alert-danger" 
                          style = {{ display: error ? "" : "none" }}>
                     { error }
-                    </div>
+                </div>
 
                     { loading ? (
                     <div className = "jumbotron text-center">

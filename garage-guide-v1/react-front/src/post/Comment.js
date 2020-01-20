@@ -7,7 +7,7 @@ import DefaultProfile from '../images/garageguide-logo.jpg'
 class Comment extends Component {
     state = {
         text: ""
-    }
+    };
 
     handleChange = event => {
         this.setState({ text: event.target.value});
@@ -43,12 +43,18 @@ class Comment extends Component {
                 <form onSubmit={this.addComment}>
                     <div className="form-group">
                         <input type="text" 
-                               onChange={this.handleChange} 
-                               className="form-control"/>
+                               onChange={this.handleChange}
+                               value={this.state.text} 
+                               className="form-control"
+                               placeholder="Leave a comment"
+                        />
+                        <br />
+                        <button className="btn btn-raised btn-success">
+                            Post
+                        </button>
                     </div>
                 </form>
-                {JSON.stringify(comments)}
-                <hr />
+
                 <div className = "col-md-8 col-md-offset-2">
                     <h3 className="text-primary">{comments.length} comments</h3>
                         <hr />

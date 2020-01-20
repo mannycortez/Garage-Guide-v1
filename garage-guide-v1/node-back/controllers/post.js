@@ -23,7 +23,7 @@ exports.getPosts = ( req, res ) => {
     const posts = Post.find()
                       .populate("postedBy", "_id name")
                       .populate('comments', 'text created')
-                      .populate('comments.postedB)y', '_id name')
+                      .populate('comments.postedBy', '_id name')
                       .select("_id title body created, likes")
                       .sort({created: -1})
                       .then((posts) => {
@@ -86,20 +86,6 @@ exports.isPoster = (req, res, next) => {
     }
     next();
 };
-
-// exports.updatePost = (req, res, next) => {
-//     let post = req.post
-//     post = _.extend(post, req.body)
-//     post.updated = Date.now()
-//     post.save(err => {
-//         if(err) {
-//             return res.status(400).json({
-//                 error: err
-//             });
-//         }
-//         res.json(post);
-//     });
-// };
 
 exports.updatePost = (req, res, next) => {
     let form = new formidable.IncomingForm()

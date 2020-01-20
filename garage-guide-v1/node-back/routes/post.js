@@ -26,7 +26,7 @@ router.put('/post/like', requireSignin, like );
 router.put('/post/unlike', requireSignin, unlike );
 
 // comments
-router.put('/post/comments', requireSignin, comment );
+router.put('/post/comment', requireSignin, comment );
 router.put('/post/uncomment', requireSignin, uncomment );
 
 router.post('/post/new/:userId', 

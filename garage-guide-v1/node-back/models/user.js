@@ -33,7 +33,11 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     following: [{ type: ObjectId }],
-    followers: [{ type: ObjectId }]
+    followers: [{ type: ObjectId }],
+    resetPasswordLink: {
+        data: String,
+        default: ""
+    }
 });
 
 // Virtual Field

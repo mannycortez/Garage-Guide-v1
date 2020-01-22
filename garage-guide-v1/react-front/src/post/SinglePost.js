@@ -15,7 +15,7 @@ class SinglePost extends Component {
         comments: []
     };
 
-    checkLike = (likes) => {
+    checkLike = likes => {
         const userId = isAuthenticated() && isAuthenticated().user._id;
         let match = likes.indexOf(userId) !== -1;
         return match;
@@ -83,7 +83,7 @@ class SinglePost extends Component {
         }
     };
 
-    renderPost = (post) => {
+    renderPost = post => {
             const posterId = post.postedBy ? `/user/${post.postedBy._id}` : "";
             const posterName = post.postedBy ? post.postedBy.name : " Unknown";
 

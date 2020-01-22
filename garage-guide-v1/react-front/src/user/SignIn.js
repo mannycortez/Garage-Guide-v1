@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { signin, authenticate } from '../auth'
 
 class SignIn extends Component {
@@ -14,7 +14,7 @@ class SignIn extends Component {
         };
     }
 
-    handleChange = (name) => (event) => {
+    handleChange = name => event => {
         this.setState({ error: "" })
         this.setState({[ name ]: event.target.value });
     };
@@ -90,6 +90,15 @@ class SignIn extends Component {
                )}
 
                 { this.signinForm(email, password) }
+                <p>
+                    <Link
+                        to="/forgot-password"
+                        className="btn btn-raised"
+                    >
+                      {" "}
+                      Forgot Password?   
+                    </Link>
+                </p>
             </div>
         );
     }

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <div class="container ">
+    <a routerLink="" class="navbar-brand">
+      <logo size="40"></logo>
+    </a>
+    <span class="navbar-toggler" (click)="isCollapsed = !isCollapsed" data-target="#adaMenu">
+      <i class="fas fa-list-ul"></i>
+    </span>
+
+    <div class="collapse navbar-collapse" id="adaMenu" [collapse]='isCollapsed'>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a routerLink="" class="nav-link adalink">FAQ</a>
+        </li>
+        <li class="nav-item ">
+          <a routerLink="login" class="nav-link adalink">
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="grad skew"></div>
+</nav>
+<div class="topp"></div>

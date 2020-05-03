@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="search shadow">
+    <a><i class="fas fa-map-marker-alt"></i></a>
+    <input type="text" placeholder="Enter City or Zip Code" [(ngModel)]="term" />
+  </div>
+
+  <button *ngIf="admin" mat-raised-button class="text-center m-2" (click)="openModal(addGarage)">
+    Add Garage
+  </button>
+
+  <button *ngIf="admin" mat-raised-button class="text-center m-2 sync" (dblclick)="sync()">
+    Sync All
+  </button>
+  <button mat-raised-button class="text-center m-2 refresh" (dblclick)="refresh()">
+    <mat-icon>autorenew</mat-icon>
+  </button>
+  <div class="row ">
+    <div class="col-md-6 garages" #garagesRef>
+      <div class="row">
+        <div *ngFor="let g of garages | async | keyvalue | filter:term; let i = index" class="col-md-6 garage"
+          [class.active]="currCard === g.value.name" (click)="selGarage(g.value)" id="{{g.key}}">
+
+          <img src="{{g?.value?.image}}" alt="">
+          <div class="row ginfo">
+            <div class="col">
+              <h4>{{ g?.value?.name }}</h4>
+              <h6>{{ g?.value?.address }}</h6>
+              <p *ngIf="false">{{ g?.value?.gmapUrl }}</p>
+              <p *ngIf="false">{{ g?.value?.image }}</p>
+            </div>
+            <div *ngIf="admin" class="col-3">
+              <button mat-raised-button class="text-center update" (click)="openModal(editGarage); curr = g">
+                <mat-icon>publish</mat-icon>
+              </button>
+
+              <button mat-raised-button class="text-center delete" (click)="openModal(deleteGarage); curr = g?.key">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf=" !(garages | async) || !((garages | async | keyvalue)?.length) || !((garages | async | keyvalue | filter: term)?.length) "
+        class="garage">
+
+        <h5>
+          No results for this search.
+        </h5>
+      </div>
+    </div>
+
+    <div class="col-md-5 map">
+      <maps (selecter)="mapEmit($event)"></maps>
+    </div>
+  </div>
+</div>
+
+<ng-template #addGarage>
+  <addGarage (closer)="addModal.hide()" [name]="'Add Garage'"></addGarage>
+  <button mat-raised-button class="delete" (click)="addModal.hide()">Close</button>
+</ng-template>
+
+<ng-template #editGarage>
+  <addGarage (closer)="addModal.hide()" [name]="'Update Garage'" [data]="curr"></addGarage>
+  <button mat-raised-button class="delete" (click)="addModal.hide()">Close</button>
+</ng-template>
+
+<ng-template #deleteGarage>
+  <button class="text-center m-2 update" (click)="addModal.hide()">No</button>
+  <button class="text-center m-2 delete" (click)="delGarage(curr); addModal.hide()">Yes</button>
+</ng-template>

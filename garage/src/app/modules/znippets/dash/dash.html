@@ -1,0 +1,28 @@
+<mat-toolbar id="toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>Admin</h1>
+  <span class="spacer"></span>
+  <mat-icon>notifications</mat-icon>
+  <mat-icon (click)="auth.logout()">lock</mat-icon>
+</mat-toolbar>
+<mat-sidenav-container class="tool-container" autosize>
+  <mat-sidenav class="sidenav" mode="side" opened="isExpanded">
+    <mat-nav-list>
+      <mat-list-item routerLink="/admin/garagelist" class="parent">
+        <span class="full-width" *ngIf="isExpanded">Garages</span>
+        <mat-icon mat-list-icon>drive_eta</mat-icon>
+      </mat-list-item>
+
+      <mat-list-item routerLink="" class="parent">
+        <span class="full-width" *ngIf="isExpanded">Home</span>
+        <mat-icon mat-list-icon>home</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="side-content pt-5">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

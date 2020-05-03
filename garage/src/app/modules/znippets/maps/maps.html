@@ -1,0 +1,12 @@
+<google-map #map id="gmap" height="100%" width="100%" [center]="center" [options]="options" [zoom]="zoom">
+
+  <map-marker *ngFor="let m of markers | keyvalue; let i = index;" [position]="m.value.position"
+    [options]="m.value.options" [title]="m.value.title" (mapClick)='openInfo(m.value.title)'>
+  </map-marker>
+
+</google-map>
+
+<!-- <button mat-raised-button class="text-center m-2" (click)="resetV()">Reset View</button> -->
+
+<button mat-raised-button class="float-right  zoomer" (click)=zoomIn()>+</button>
+<button mat-raised-button class="float-right zoomer" (click)=zoomOut()>-</button>

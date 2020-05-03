@@ -1,0 +1,21 @@
+@import "variables.scss";
+
+.card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#login {
+  background-color: $colblue;
+  color: #fff;
+}
+
+button {
+  border-radius: 10px;
+  margin: 15px auto;
+  display: block;
+}
+
+h3 {
+  width: 300px;
+  margin: 10px auto;
+}

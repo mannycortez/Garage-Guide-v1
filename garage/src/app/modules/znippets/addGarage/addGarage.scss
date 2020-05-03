@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+.addGarage {
+  padding: 15px;
+
+  button {
+    background-color: $colblue;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: block;
+  }
+}
